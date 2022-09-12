@@ -2,8 +2,6 @@ package com.aws.example.awsdemo.secretmanager.repository;
 
 import com.amazonaws.services.secretsmanager.AWSSecretsManager;
 import com.amazonaws.services.secretsmanager.model.GetSecretValueRequest;
-import com.amazonaws.services.secretsmanager.model.ResourceNotFoundException;
-import com.aws.example.awsdemo.secretmanager.service.SecretManagerServiceImpl;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
