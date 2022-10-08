@@ -268,5 +268,6 @@ override.tf.json
 *terraform.tfstate.backup
 *terraform.lock.hcl
 *terraform-provider-aws_v4.32.0_x5.exe
+*.terraform\providers\registry.terraform.io\hashicorp\aws\4.32.0\windows_amd64\terraform-provider-aws_v4.32.0_x5.exe
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform,phpstorm+all,node
