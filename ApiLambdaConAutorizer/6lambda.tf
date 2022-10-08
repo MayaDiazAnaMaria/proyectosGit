@@ -10,10 +10,10 @@ resource "aws_lambda_function" "authorizer" {
 
 resource "aws_lambda_function" "function" {
   filename      = "function.zip"
-  function_name = "function"
+  function_name = "funcion_ejemplo"
   role          = aws_iam_role.lambda.arn
   handler       = "function.handler"
   runtime = "nodejs16.x"
-  //package_type = "Zip"
-  //source_code_hash = filebase64sha256("function.zip")
+  package_type = "Zip"
+  source_code_hash = filebase64sha256("function.zip")
 }

@@ -1,5 +1,5 @@
 resource "aws_api_gateway_rest_api" "api_gw_rest" {
-  name                   = "api_gw_authorizer_rest_api"
+  name                   = "CE-MCE-api_gw_authorizer_rest_api"
   depends_on = [aws_lambda_function.authorizer,aws_lambda_function.function]
   endpoint_configuration {
     types = [
@@ -9,7 +9,7 @@ resource "aws_api_gateway_rest_api" "api_gw_rest" {
 }
 
 resource "aws_api_gateway_authorizer" "api_gw_auth" {
-  name                   = "api_gw_authorizer"
+  name                   = "CE-MCE-api_gw_authorizer"
   rest_api_id            = aws_api_gateway_rest_api.api_gw_rest.id
   authorizer_uri         = aws_lambda_function.authorizer.invoke_arn
   type                    = "TOKEN"
@@ -18,6 +18,7 @@ resource "aws_api_gateway_authorizer" "api_gw_auth" {
   authorizer_credentials = aws_iam_role.invocation_role.arn
 }
 
+/*mv other file*/
 resource "aws_api_gateway_method" "api_gw_method" {
   rest_api_id   = aws_api_gateway_rest_api.api_gw_rest.id
   resource_id   = aws_api_gateway_rest_api.api_gw_rest.root_resource_id
@@ -54,7 +55,7 @@ resource "aws_api_gateway_deployment" "api_gw_deployment" {
 resource "aws_api_gateway_stage" "example" {
   deployment_id = aws_api_gateway_deployment.api_gw_deployment.id
   rest_api_id             = aws_api_gateway_rest_api.api_gw_rest.id 
-  stage_name    = "stage"
+  stage_name    = "CE-MCE-stage"
 }
 
 resource "aws_api_gateway_method_response" "response_200" {
